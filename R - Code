@@ -1,0 +1,52 @@
+
+# Libraries
+suppressMessages(library(ExcelFunctionsR))
+suppressMessages(library(gridExtra))
+
+
+# Data Simulation. 
+Simulated_websites <- c("Website_1","Website_2")
+Simulated_websites <- sample(Simulated_websites, 1000, replace=TRUE, prob=c(0.5, 0.5))
+Websites<-Simulated_websites
+
+
+Simulated_clicks <- c(0,1)
+Simulated_clicks <- sample(Simulated_clicks, 1000, replace=TRUE, prob=c(0.5, 0.5))
+Clicks<-Simulated_clicks
+
+
+# Data Frame and state them as factors
+dat<-cbind(Websites,Clicks)
+dat<-as.data.frame(dat)
+dat[,1]<-as.factor(dat[,1])
+dat[,2]<-as.factor(dat[,2])
+
+
+#Count how many clicks were on each website
+clicked_website_1<-COUNTIFS(dat[,1],"Website_1")
+clicked_website_2<-COUNTIFS(dat[,1],"Website_2")
+
+
+# Pie chart 
+pie(cbind(clicked_website_1,clicked_website_2),
+    main="Pie Chart of how many people click on website 1 and website 2)",col=c(1,2),labels=levels(dat[,1]))
+
+
+#Let us create two tables with the absolute and the relative proportions:
+props <- table(dat)
+props_absolute <- addmargins(props)
+props_absolute
+
+
+#pdf("mypdf.pdf", height=6, width=4)
+grid.table(props_absolute)
+
+
+# Chi square test, p-value = 0.7985
+prop.test(props)
+
+Explanation of Hypothesis testing:
+
+The p-value is larger than the typical threshold of 0.05 the difference is highly insignificant, 
+so we can't reject the null hypothesis. In other words the results are due to chance. However, A/B testing is not a one-time job. 
+It must be done continually with an automated process and re-check the outcome.
