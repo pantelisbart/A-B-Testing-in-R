@@ -47,6 +47,8 @@ prop.test(props)
 
 Explanation of Hypothesis testing:
 
-The p-value is larger than the typical threshold of 0.05 the difference is highly insignificant, 
-so we can't reject the null hypothesis. In other words the results are due to chance. However, A/B testing is not a one-time job. 
+The p-value is larger than the typical threshold of 0.05 the difference is not significant, 
+so we can't reject the null hypothesis. In other words the results are due to chance. 
+
+However, A/B testing is not a one-time job. 
 It must be done continually with an automated process and re-check the outcome.
