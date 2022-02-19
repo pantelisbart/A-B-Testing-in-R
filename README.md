@@ -10,7 +10,7 @@ The concept of how to design the experiment is simple. First of all, a webpage i
 
 After a specific amount of time, the company change the webpage and again it is shown randomly to customers. After the process is done, evaluation starts and finally decide which webpage brought better results.
 
-Hypothesis testing plays a vital role in the evaluation of the two samples. 
+Hypothesis testing plays a vital role in the evaluation of the two samples. In our example we used Chi-square test. It is used for categorical variables and tests whether there is association among them or not.
 
 
 However, A/B testing it is not a one-time job. It must be done regularly in order to work. Sometimes chance or luck might get in the way and we can't have a clear picture of the situation. So, with statistical tools such as hypethesis testing and regular ckecks, we will be able to optimize the business.
